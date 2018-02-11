@@ -37,10 +37,10 @@ if (!$con)
 			<td>Product Price:</td> <td><input type="decimal" min="1" name="price" value="<?php echo $price1 ?>" required pattern="[0-9.-]+\.[0-9.-]{2}" title=" example: $XXX.XX " /></td>
 		</tr>
 		<tr>
-			<td>Product Code:</td> <td><input type="text"  name="code" value="<?php echo $code1 ?>" required pattern="[A-Za-z].{1,}" /></td>
+			<td>Product Code:</td> <td><input type="text"  name="code" value="<?php echo $code1 ?>" required pattern="[A-Za-z].{1,}" title="enter characters only"/></td>
 		</tr>
 		<tr>
-			<td>Product Size:</td> <td><input type="text" name="size" maxlength="10" value="<?php echo $size1 ?>" required pattern="[A-Za-z].{1,}"/></td>
+			<td>Product Size:</td> <td><input type="text" name="size" maxlength="10" value="<?php echo $size1 ?>" required pattern="[A-Za-z].{1,}" title="enter characters only"/></td>
 		 </tr>
 		<tr>
 			<td><input type="hidden" name="id" value="<?php echo $id1 ?>" /></td>
