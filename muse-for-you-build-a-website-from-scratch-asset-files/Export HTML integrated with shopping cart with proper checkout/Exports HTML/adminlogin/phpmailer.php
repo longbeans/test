@@ -29,7 +29,7 @@ function sendOTP($email1,$otp)
 
 		//Content
 		$mail->isHTML(true);                                  // Set email format to HTML
-		$mail->Subject = 'OTP for login';
+		$mail->Subject = 'OTP for website';
 		$mail->Body    = 'Here is your OTP ' . $_SESSION["otp"] .'.' ;
 		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
