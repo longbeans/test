@@ -12,26 +12,37 @@ if (!$con)
 <?php
 session_start();
 
-$showuser= mysqli_query($con,"SELECT `password` from admin WHERE userID='". $_SESSION["id"] ."'");
-$username = mysqli_real_escape_string($con, $_REQUEST['user']);
+$showuser= mysqli_query($con,"SELECT `username`,`password` from admin WHERE userID='". $_SESSION["id"] ."'");
+$username1 = mysqli_real_escape_string($con, $_REQUEST['user']);
 $password = mysqli_real_escape_string($con, $_REQUEST['pass']);
 while($row = mysqli_fetch_array($showuser))
 {
+	$user1 = $row['username'];
 	$hash= $row['password'];
 }
-if(password_verify($password, $hash))
-{							
-	echo "Account successfully removed.";
-	$deleteuser=mysqli_query($con, "DELETE FROM admin WHERE userID='". $_SESSION["id"] ."'");
-	?>
+echo $user1;
+echo $username1;
+if($username1 == $user1)
+{
+	if(password_verify($password, $hash))
+	{							
+		echo "Account successfully removed.";
+		$deleteuser=mysqli_query($con, "DELETE FROM admin WHERE userID='". $_SESSION["id"] ."'");
+		?>
 	
-	<td><a href="loginpage.html"><button type="submit" value="Submit" class="button"><span>Complete</span></button></td>
-	<?php
+		<td><a href="loginpage.html"><button type="submit" value="Submit" class="button"><span>Complete</span></button></td>
+		<?php
+	}
+	else
+	{
+	echo "Error occured while removing account.";
+	header ("Location: deletepage.html");
+	}
 }
 else
 {
-  echo "Error occured while removing account.";
-  header ("Location: deletepage.html");
+	echo "Error occured while removing account.";
+	header ("Location: deletepage.html");
 }
 ?>
 </br>
