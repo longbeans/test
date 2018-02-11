@@ -9,7 +9,7 @@ if (!$con)
 <?php
 date_default_timezone_set( 'Asia/Singapore' );
 
-if ((date ("G") >= 9) && (date ("G") <= 22)) 
+if ((date ("G") >= 9) && (date ("G") <= 19)) 
 {
 	session_start();
 
